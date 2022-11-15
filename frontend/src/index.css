@@ -1,0 +1,38 @@
+#book_img {
+    height: 100px;
+    width: 100px;
+}
+
+.login-card{
+    width: 600px;
+    height: 480px;
+}
+
+#login-image{
+    height: 478px;
+    width: 349px;
+}
+
+#edit-card{
+    height: 478px;
+    
+}
+#edit-div{
+    width: 478px;
+    
+}
+
+#search-dropdown::after{
+    display: none; 
+    
+  }
+
+#register-card {
+    width: 32rem;
+    border-radius: 2rem;
+}
+
+
+body {
+    background-color: aliceblue;
+}
