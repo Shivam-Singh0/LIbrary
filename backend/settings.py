@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from datetime import timedelta
 from pathlib import Path
+import cloudinary
+import cloudinary_storage
+from decouple import config
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -24,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-&aydsnw1x2vff%821ro7(j04k=51d)rx$++&a)d4(ge02p^381'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
-ALLOWED_HOSTS = ['127.0.0.1', 'localhost', '.herokuapp.com']
+ALLOWED_HOSTS = ['127.0.0.1', 'localhost', 'library-ind.herokuapp.com']
 
 
 # Application definition
@@ -35,6 +38,8 @@ INSTALLED_APPS = [
     'base',
 
     'rest_framework',
+    'cloudinary',
+    'cloudinary_storage',
     "corsheaders",
     'django.contrib.admin',
     'django.contrib.auth',
@@ -161,6 +166,14 @@ USE_TZ = True
 
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.0/howto/static-files/
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': config('CLOUD_NAME', default=""),
+    'API_KEY': config('API_KEY', default=""),
+    'API_SECRET': config('API_SECRET', default=""),
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary_storage.storage.MediaCloudinaryStorage'
 
 STATIC_URL = 'static/'
 
